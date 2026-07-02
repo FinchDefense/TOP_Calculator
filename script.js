@@ -23,10 +23,11 @@ container.prepend(title_pt1);
 const buttonsContainer = document.querySelector(".buttons");
 
 const buttonLabels = [
-    '7', '8', '9', '÷',
-    '4', '5', '6', '×',
-    '1', '2', '3', '-',
-    '0', '.', '=', '+'
+    'AC', 'C', '%', '÷',
+    '7', '8', '9', '×',
+    '4', '5', '6', '-',
+    '1', '2', '3', '+',
+    '0', '.', '=', '±'
 ];
 
 buttonLabels.forEach(label => {
@@ -34,13 +35,13 @@ buttonLabels.forEach(label => {
     button.textContent = label;
     button.classList.add('calc_button');
 
-
     // Special buttons deserve special classes
     if (label === '0') button.classList.add('zero');
     if (['÷', '×', '-', '+'].includes(label)) button.classList.add('operator');
     if (label === '=') button.classList.add('equal_sign');
-
+    if (label === 'AC' || label === 'C') button.classList.add('clear');
+    if (label === '%' || label === '±') button.classList.add('special');
     
     buttonsContainer.appendChild(button);
-})
+});
 
