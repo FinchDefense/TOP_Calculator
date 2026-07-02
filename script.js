@@ -64,14 +64,14 @@ buttonsContainer.addEventListener('click', (e) => {
     }   
     
     else if (button.classList.contains('clear')) { // if C button is clicked
-        
+        input.textContent = '';
     }
 
     else if (button.classList.contains('equal_sign')) { // if '=' sign is clicked
 
     }
 
-    else if (button.classList.container('operator')) { // if an operator is clicked
+    else if (button.classList.contains('operator')) { // if an operator is clicked
 
     }
 
