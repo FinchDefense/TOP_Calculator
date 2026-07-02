@@ -1,6 +1,7 @@
 let num1 = null;
 let num2 = null;
 let operator = null;
+let resultDisplayed = false;
 
 const container = document.querySelector(".container");
 
@@ -58,29 +59,33 @@ buttonsContainer.addEventListener('click', (e) => {
     if (!button.classList.contains('calc_button')) return; // Not a button
 
     // Check if it has a special class
-    if (button.classList.contains('clearAll'))  { // if AC button is clicked
+    if (button.classList.contains('clearAll')) {
         input.textContent = '';
         num1 = null;
         num2 = null;
         operator = null;
-    }   
+        resultDisplayed = false;  // ← Add this
+    }
     
-    else if (button.classList.contains('clear')) { // if C button is clicked
+    else if (button.classList.contains('clear')) {
         input.textContent = '';
         num2 = null;
+        resultDisplayed = false;  // ← Add this
     }
 
-    else if (button.classList.contains('equal_sign')) { // if '=' sign is clicked
+    else if (button.classList.contains('equal_sign')) {
         if (operate(num1, num2, operator) === "ERROR!") {
             input.textContent = "ERROR";
             num1 = null;
             num2 = null;
             operator = null;
+            resultDisplayed = false;
+        } else {
+            num1 = operate(num1, num2, operator);
+            input.textContent = num1;
+            num2 = null;
+            resultDisplayed = true;  // ← Set this!
         }
-
-        num1 = operate(num1, num2, operator);
-        input.textContent = num1;
-        num2 = null;
     }
 
     else if (button.classList.contains('operator')) { // if an operator is clicked
@@ -119,22 +124,32 @@ buttonsContainer.addEventListener('click', (e) => {
     }
 
     else { // If it does not have a special class:
-        if (num1 !== null && num2 === null) {
+
+        if (resultDisplayed) {
             input.textContent = button.textContent;
-            num1 = null;
+            num1 = +button.textContent;
             num2 = null;
             operator = null;
+            resultDisplayed = false;
+            return;
         }
-        else {
-            input.textContent += button.textContent;
 
+        if (num2 === null && operator !== null) {
+            input.textContent = button.textContent;
+            num2 = +button.textContent;
+            return;
         }
-        if (operator === null && num2 === null) num1 = +input.textContent;
-        else if (operator !== null) num2 = +input.textContent;
+
+        input.textContent += button.textContent;
+        if (operator === null) {
+            num1 = +input.textContent;
+        } else {
+            num2 = +input.textContent;
+        }
     }
-})
+}
+)
 
-// Operate function to be called when equal sign is clicked
 function operate(num1, num2, operator) {
     if (!Number.isFinite(num1) || !(Number.isFinite(num2))) return "ERROR!";
 
