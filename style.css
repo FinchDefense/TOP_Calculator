@@ -55,6 +55,7 @@ body {
     margin: 5px 5px;
     border-radius: 12px;
     background-color: #FFFFFF;
+    font-weight: 900;
 
     font-size: 20px;
 }
@@ -63,3 +64,7 @@ body {
     background-color: #e0e0e0;
 }
 
+.operator {
+    background-color: #dbc208;
+
+}
