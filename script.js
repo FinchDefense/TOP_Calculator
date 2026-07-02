@@ -151,6 +151,11 @@ buttonsContainer.addEventListener('click', (e) => {
 )
 
 function operate(num1, num2, operator) {
+    // Div. by 0
+     if (operator === '÷' && num2 === 0) {
+        return "ERROR!";
+    }
+
     if (!Number.isFinite(num1) || !(Number.isFinite(num2))) return "ERROR!";
 
     if (operator === '+') return add(num1, num2);
