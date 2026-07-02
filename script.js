@@ -72,14 +72,37 @@ buttonsContainer.addEventListener('click', (e) => {
     }
 
     else if (button.classList.contains('operator')) { // if an operator is clicked
+        if (button.textContent === '+') {
+            input.textContent = '';
+            operator = '+';
+        }
 
+        if (button.textContent === '-') {
+            input.textContent = '';
+            operator = '-';
+        }
+
+        if (button.textContent === 'x') {
+            input.textContent = '';
+            operator = 'x';
+        }
+
+        if (button.textContent === '÷') {
+            input.textContent = '';
+            operator = '÷';
+        }
+
+        if (button.textContent === '%') {
+            input.textContent = '';
+            operator = '%';
+        }
     }
 
     else { // If it does not have a special class:
         input.textContent += button.textContent;
 
         if (operator === null && num2 === null) num1 = +input.textContent;
-        else if (operator !== null) num2 += input.textContent;
+        else if (operator !== null) num2 = +input.textContent;
     }
 })
 
@@ -102,11 +125,4 @@ function divide(a,b) {
 
 function percent(a,b) {
     return (a / 100) * b;
-}
-
-
-
-
-
-
-
+} 
