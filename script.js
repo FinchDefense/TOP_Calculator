@@ -21,6 +21,7 @@ container.prepend(title_pt1);
 
 
 const buttonsContainer = document.querySelector(".buttons");
+const input = document.querySelector(".input-text")
 
 const buttonLabels = [
     'AC', 'C', '%', '÷',
@@ -39,12 +40,41 @@ buttonLabels.forEach(label => {
     if (label === '0') button.classList.add('zero');
     if (['÷', '×', '-', '+'].includes(label)) button.classList.add('operator');
     if (label === '=') button.classList.add('equal_sign');
-    if (label === 'AC' || label === 'C') button.classList.add('clear');
-    if (label === '%' || label === '±') button.classList.add('special');
+    if (label === 'AC') button.classList.add('clearAll');
+    if (label === 'C') button.classList.add('clear');
+    if (label === '%') button.classList.add('percent');
+    if (label === '±') button.classList.add('plus-minus')
     
     buttonsContainer.appendChild(button);
 });
 
+buttonsContainer.addEventListener('click', (e) => {
+    const button = e.target;
+
+    // Special class cases
+    if (!button.classList.contains('calc_button')) return; // Not a button
+
+    // Check if it has a special class
+    if (button.classList.contains('clearAll'))  { // if AC button is clicked
+
+    }   
+    
+    else if (button.classList.contains('clear')) { // if C button is clicked
+
+    }
+
+    else if (button.classList.contains('equal_sign')) { // if '=' sign is clicked
+
+    }
+
+    else if (button.classList.container('operator')) { // if an operator is clicked
+
+    }
+
+    else { // If it does not have a special class:
+        input.textContent += button.textContent;
+    }
+})
 
 // Start adding operator functions!
 function add(a,b) {
@@ -62,6 +92,10 @@ function multiply(a,b) {
 function divide(a,b) {
     return a / b;
 }
+
+
+
+
 
 
 
