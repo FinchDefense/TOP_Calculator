@@ -24,10 +24,10 @@ body {
 
 .calculator {
     min-height: 500px;
-    width: 400px;
+    width: 360px;
 
     border: 2px solid #333333;
-    margin-top: -20px;
+    margin-top: -40px;
     padding: 16px;
     border-radius: 16px;
 
@@ -49,9 +49,17 @@ body {
 }
 
 .calc_button {
-    width: 84px;
-    height: 84px;
+    width: 80px;
+    height: 80px;
 
+    margin: 5px 5px;
     border-radius: 12px;
     background-color: #FFFFFF;
+
+    font-size: 20px;
 }
+
+.calc_button:hover {
+    background-color: #e0e0e0;
+}
+
