@@ -18,11 +18,6 @@ body {
     min-height: 100vh;
 }
 
-.container2 {
-    display: flex;
-    flex-direction: row;
-}
-
 .calculator {
     min-height: 500px;
     min-width: 400px;
@@ -36,3 +31,4 @@ body {
     flex-direction: column;
     background-color: rgb(211, 211, 211);
 }
+
