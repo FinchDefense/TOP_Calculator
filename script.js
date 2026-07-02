@@ -1,3 +1,7 @@
+let num1 = null;
+let num2 = null;
+let operator = null;
+
 const container = document.querySelector(".container");
 
 const title_pt2 = document.createElement("p");
