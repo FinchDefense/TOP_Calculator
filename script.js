@@ -42,11 +42,10 @@ buttonLabels.forEach(label => {
 
     // Special buttons deserve special classes
     if (label === '0') button.classList.add('zero');
-    if (['÷', '×', '-', '+'].includes(label)) button.classList.add('operator');
+    if (['÷', '×', '-', '+', '%'].includes(label)) button.classList.add('operator');
     if (label === '=') button.classList.add('equal_sign');
     if (label === 'AC') button.classList.add('clearAll');
     if (label === 'C') button.classList.add('clear');
-    if (label === '%') button.classList.add('percent');
     if (label === '±') button.classList.add('plus-minus')
     
     buttonsContainer.appendChild(button);
@@ -71,7 +70,14 @@ buttonsContainer.addEventListener('click', (e) => {
     }
 
     else if (button.classList.contains('equal_sign')) { // if '=' sign is clicked
+        if (operate(num1, num2, operator) === "ERROR!") {
+            input.textContent = "ERROR";
+            num1 = null;
+            num2 = null;
+            operator = null;
+        }
 
+        input.textContent = operate(num1, num2, operator);
     }
 
     else if (button.classList.contains('operator')) { // if an operator is clicked
@@ -85,9 +91,9 @@ buttonsContainer.addEventListener('click', (e) => {
             operator = '-';
         }
 
-        if (button.textContent === 'x') {
+        if (button.textContent === '×') {
             input.textContent = '';
-            operator = 'x';
+            operator = '×';
         }
 
         if (button.textContent === '÷') {
@@ -115,8 +121,9 @@ function operate(num1, num2, operator) {
 
     if (operator === '+') return add(num1, num2);
     else if (operator === '-') return subtract(num1, num2);
-    else if (operator === 'x') return multiply(num1, num2);
+    else if (operator === '×') return multiply(num1, num2);
     else if (operator === '÷') return divide(num1, num2);
+    else if (operator === '%') return percent(num1, num2);
 }
 
 // Start adding operator functions!
