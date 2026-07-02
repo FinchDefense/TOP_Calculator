@@ -60,7 +60,10 @@ buttonsContainer.addEventListener('click', (e) => {
 
     // Check if it has a special class
     if (button.classList.contains('clearAll'))  { // if AC button is clicked
-
+        input.textContent = '';
+        num1 = null;
+        num2 = null;
+        operator = null;
     }   
     
     else if (button.classList.contains('clear')) { // if C button is clicked
