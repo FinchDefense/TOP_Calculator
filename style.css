@@ -46,6 +46,9 @@ body {
     margin-bottom: 12px;
     font-size: 50px;
     font-family: 'Courier New', monospace;
+
+    max-width: 360px;
+    overflow: auto;
 }
 
 .calc_button {
