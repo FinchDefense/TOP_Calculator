@@ -27,5 +27,7 @@ body {
     min-height: 550px;
     min-width: 400px;
 
+    border: 2px solid #333333;
+    padding: 8px;
     background-color: rgb(211, 211, 211);
 }
