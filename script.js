@@ -109,6 +109,16 @@ buttonsContainer.addEventListener('click', (e) => {
     }
 })
 
+// Operate function to be called when equal sign is clicked
+function operate(num1, num2, operator) {
+    if (!Number.isFinite(num1) || !(Number.isFinite(num2))) return "ERROR!";
+
+    if (operator === '+') return add(num1, num2);
+    else if (operator === '-') return subtract(num1, num2);
+    else if (operator === 'x') return multiply(num1, num2);
+    else if (operator === '÷') return divide(num1, num2);
+}
+
 // Start adding operator functions!
 function add(a,b) {
     return a + b;
