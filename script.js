@@ -64,7 +64,7 @@ buttonsContainer.addEventListener('click', (e) => {
     }   
     
     else if (button.classList.contains('clear')) { // if C button is clicked
-
+        
     }
 
     else if (button.classList.contains('equal_sign')) { // if '=' sign is clicked
@@ -77,6 +77,9 @@ buttonsContainer.addEventListener('click', (e) => {
 
     else { // If it does not have a special class:
         input.textContent += button.textContent;
+
+        if (operator === null && num2 === null) num1 = +input.textContent;
+        else if (operator !== null) num2 += input.textContent;
     }
 })
 
