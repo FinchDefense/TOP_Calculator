@@ -77,7 +77,9 @@ buttonsContainer.addEventListener('click', (e) => {
             operator = null;
         }
 
-        input.textContent = operate(num1, num2, operator);
+        num1 = operate(num1, num2, operator);
+        input.textContent = num1;
+        num2 = null;
     }
 
     else if (button.classList.contains('operator')) { // if an operator is clicked
@@ -104,6 +106,12 @@ buttonsContainer.addEventListener('click', (e) => {
         if (button.textContent === '%') {
             input.textContent = '';
             operator = '%';
+        }
+
+        if (num1 !== null && num2 !== null && operator !== null) {
+                num1 = operate(num1, num2, operator);
+                input.textContent = num1;
+                num2 = null;
         }
     }
 
