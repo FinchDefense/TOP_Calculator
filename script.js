@@ -97,6 +97,10 @@ function divide(a,b) {
     return a / b;
 }
 
+function percent(a,b) {
+    return (a / 100) * b;
+}
+
 
 
 
