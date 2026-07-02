@@ -5,3 +5,11 @@ body {
 
     background-color: blanchedalmond;
 }
+
+.container {
+    background: #ffffff;
+    margin: 10px 10px;
+
+    min-width: 60vw;
+    min-height: 90vh;
+}
