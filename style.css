@@ -12,24 +12,31 @@ body {
     align-items: center;
 
     background: #ffffff;
-    margin: 10px 10px;
+    margin: 10px;
 
     min-width: 60vw;
-    min-height: 100vh;
+    min-height: 90vh;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
 }
 
 .calculator {
     min-height: 500px;
-    min-width: 400px;
+    width: 400px;
 
     border: 2px solid #333333;
-    padding: 8px;
     margin-top: -20px;
+    padding: 16px;
     border-radius: 16px;
 
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     background-color: rgb(211, 211, 211);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
 }
 
 .input-text {
@@ -37,4 +44,12 @@ body {
     background-color: #FFFFFF;
     border-radius: 8px;
     margin: 4px;
+}
+
+.calc_button {
+    width: 84px;
+    height: 84px;
+
+    border-radius: 12px;
+    background-color: #FFFFFF;
 }
