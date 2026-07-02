@@ -24,10 +24,13 @@ body {
 }
 
 .calculator {
-    min-height: 550px;
+    min-height: 500px;
     min-width: 400px;
 
     border: 2px solid #333333;
     padding: 8px;
+    margin-top: -20px;
+    border-radius: 16px;
+    
     background-color: rgb(211, 211, 211);
 }
