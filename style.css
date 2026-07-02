@@ -32,3 +32,9 @@ body {
     background-color: rgb(211, 211, 211);
 }
 
+.input-text {
+    height: 60px;           
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    margin: 4px;
+}
