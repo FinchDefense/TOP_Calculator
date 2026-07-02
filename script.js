@@ -67,6 +67,7 @@ buttonsContainer.addEventListener('click', (e) => {
     
     else if (button.classList.contains('clear')) { // if C button is clicked
         input.textContent = '';
+
     }
 
     else if (button.classList.contains('equal_sign')) { // if '=' sign is clicked
@@ -83,6 +84,14 @@ buttonsContainer.addEventListener('click', (e) => {
     }
 
     else if (button.classList.contains('operator')) { // if an operator is clicked
+
+        if (num1 !== null && num2 !== null && operator !== null) {
+                num1 = operate(num1, num2, operator);
+                input.textContent = num1;
+                num2 = null;
+                return;
+        }
+
         if (button.textContent === '+') {
             input.textContent = '';
             operator = '+';
@@ -106,18 +115,20 @@ buttonsContainer.addEventListener('click', (e) => {
         if (button.textContent === '%') {
             input.textContent = '';
             operator = '%';
-        }
-
-        if (num1 !== null && num2 !== null && operator !== null) {
-                num1 = operate(num1, num2, operator);
-                input.textContent = num1;
-                num2 = null;
-        }
+        }  
     }
 
     else { // If it does not have a special class:
-        input.textContent += button.textContent;
+        if (num1 !== null && num2 === null) {
+            input.textContent = button.textContent;
+            num1 = null;
+            num2 = null;
+            operator = null;
+        }
+        else {
+            input.textContent += button.textContent;
 
+        }
         if (operator === null && num2 === null) num1 = +input.textContent;
         else if (operator !== null) num2 = +input.textContent;
     }
