@@ -20,4 +20,27 @@ title_pt1.style.fontStyle = "italic";
 container.prepend(title_pt1);
 
 
+const buttonsContainer = document.querySelector(".buttons");
+
+const buttonLabels = [
+    '7', '8', '9', '÷',
+    '4', '5', '6', '×',
+    '1', '2', '3', '-',
+    '0', '.', '=', '+'
+];
+
+buttonLabels.forEach(label => {
+    const button = document.createElement('button');
+    button.textContent = label;
+    button.classList.add('calc_button');
+
+
+    // Special buttons deserve special classes
+    if (label === '0') button.classList.add('zero');
+    if (['÷', '×', '-', '+'].includes(label)) button.classList.add('operator');
+    if (label === '=') button.classList.add('equal_sign');
+
+    
+    buttonsContainer.appendChild(button);
+})
 
