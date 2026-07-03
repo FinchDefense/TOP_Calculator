@@ -84,19 +84,29 @@ buttonsContainer.addEventListener('click', (e) => {
 
     if (button.classList.contains('operator')) {
         if (num1 !== null && num2 !== null && operator !== null) {
-            num1 = operate(num1, num2, operator);
+            const result = operate(num1, num2, operator);
+            if (result === "ERROR!" || !Number.isFinite(result)) {
+                input.textContent = "ERROR";
+                num1 = null;
+                num2 = null;
+                operator = null;
+                return;
+            }
+            num1 = result;
             input.textContent = num1;
             num2 = null;
+        } else {
+            // Only clear when starting fresh (no num2)
+            if (num2 === null && operator === null) {
+                input.textContent = '';
+            }
         }
         operator = button.textContent;
-        input.textContent = '';
         return;
     }
 
-    // Numbers and decimal
     const value = button.textContent;
 
-    // If num2 is null and operator exists, start building num2
     if (num2 === null && operator !== null) {
         input.textContent = value;
         num2 = +value;
